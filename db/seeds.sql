@@ -1,6 +1,6 @@
-INSERT INTO burgers (Burger_name)
+INSERT INTO burgers (burger_name)
 VALUES ('Buzz Burgers');
-INSERT INTO burgers (Burger_name)
+INSERT INTO burgers (burger_name)
 VALUES ('Buffalo Burgers');
-INSERT INTO burgers (Burger_name)
+INSERT INTO burgers (burger_name)
 VALUES ('Backyard Burgers');
