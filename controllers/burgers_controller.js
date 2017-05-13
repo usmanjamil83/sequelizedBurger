@@ -1,6 +1,6 @@
 var express = require("express");
 // Import the model to use its database functions.
-var db = require("models");
+var db = require("../models");
 
 var router = express.Router();
 
