@@ -6,7 +6,7 @@ var router = express.Router();
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.Burger.findAll(function(data) {
+  db.Burger.findAll({}).then(function(data) {
     var hbsObject = {
       burgers: data
     };
@@ -16,23 +16,21 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  db.Burger.create([
-    "burger_name"
-    ], [
-    req.body.burger_name
-    ], function() {
-      res.redirect("/");
-    });
+  db.Burger.create({
+    burger_name: req.body.burger_name
+  }).then(function() {
+    res.redirect("/");
+  });
 });
 
 router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
   db.Burger.update({
     devoured: true
-  }, condition, function() {
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then(function() {
     res.redirect("/");
   });
 });
